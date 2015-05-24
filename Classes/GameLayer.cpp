@@ -7,6 +7,11 @@
 //
 
 #include "GameLayer.h"
+#include "cocostudio/CocoStudio.h"
+#include "ui/CocosGUI.h"
+
+using namespace ui;
+using namespace cocostudio::timeline;
 
 GameLayer::GameLayer()
 {
@@ -39,8 +44,9 @@ bool GameLayer::init()
     {
         return false;
     }
-    
-    initPhysics();
+
+	auto layer = CSLoader::createNode("MainScene.csb");
+	addChild(layer);
     
     return true;
 }

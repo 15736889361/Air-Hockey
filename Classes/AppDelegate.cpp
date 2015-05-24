@@ -27,11 +27,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("Air-Hockey", Rect(0, 0, 640, 960));
+        glview = GLViewImpl::createWithRect("Air-Hockey", Rect(0, 0, 768, 1024));
         director->setOpenGLView(glview);
     }
 
-    director->getOpenGLView()->setDesignResolutionSize(640, 960, ResolutionPolicy::SHOW_ALL);
+    director->getOpenGLView()->setDesignResolutionSize( 768, 1024, ResolutionPolicy::NO_BORDER);
 
     // turn on display FPS
     director->setDisplayStats(true);

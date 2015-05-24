@@ -7,7 +7,7 @@
         <LuaEncryptSign Value="" />
         <Android_PackageName Value="com.mogoolib.AirHockey" />
         <AndroidkeyStore Value="" />
-        <AndroidVersion Value="android-21" />
+        <AndroidVersion Value="android-20" />
         <iOS_Target Value="Air-Hockey iOS" />
         <iOS_BundleID Value="iPhone Distribution: Yi Ren (UW25FQ3CB3)" />
         <Platform Value="None" />
@@ -22,9 +22,9 @@
     </Item>
     <Item Key="CocosRecentOperation">
       <Value ctype="CocosRecentOperation">
-        <LastPublishType Value="XCode" />
+        <LastPublishType Value="VS" />
         <IsLastPublish Value="True" />
-        <LastRunType Value="Unknown" />
+        <LastRunType Value="Windows" />
       </Value>
     </Item>
     <Item Key="TabsParamsKey">
