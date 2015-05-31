@@ -9,9 +9,13 @@
 #ifndef __Air_Hockey__GameLayer__
 #define __Air_Hockey__GameLayer__
 
-#include <stdio.h>
+//tool
+#include "Constant.h"
+#include "SmartRes.h"
+
 #include "cocos2d.h"
 #include "Box2D/Box2D.h"
+
 
 USING_NS_CC;
 
@@ -24,12 +28,20 @@ public:
     static GameLayer* create();
     
     virtual bool init();
+
+	//init ui
+	void initUI();
     
     //init physics
     void initPhysics();
     
+	//
+	void initOther();
+
+	void update(float dt);
 private:
     
+	b2World* _world;
     
 };
 

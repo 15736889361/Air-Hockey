@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "GameDelegate.h"
+#include "SmartRes.h"
 
 USING_NS_CC;
 
@@ -27,11 +28,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("Air-Hockey", Rect(0, 0, 768, 1024));
+        glview = GLViewImpl::createWithRect("Air-Hockey", Rect(0, 0, 480, 800));
         director->setOpenGLView(glview);
     }
 
-    director->getOpenGLView()->setDesignResolutionSize( 768, 1024, ResolutionPolicy::NO_BORDER);
+    //director->getOpenGLView()->setDesignResolutionSize( 768, 1024, ResolutionPolicy::NO_BORDER);
+
+	SmartRes::getInstance()->setVirtualScreenHeight(960);
 
     // turn on display FPS
     director->setDisplayStats(true);
