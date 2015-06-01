@@ -48,6 +48,10 @@ bool GameLayer::init()
 	initUI();
 
 	initPhysics();
+
+	initBall();
+
+	initOther();
     
     return true;
 }
@@ -96,6 +100,35 @@ void GameLayer::initPhysics()
 	walls->CreateFixture(&shape,0);
 }
 
+void GameLayer::initBall()
+{
+	//sprite
+	auto ballSprite = Sprite::create("puck.png");
+	ballSprite->setPosition(Vec2(_s_center.x,_s_center.y));
+	addChild(ballSprite);
+
+	auto ball_position = ballSprite->getPosition();
+
+	b2BodyDef def;
+	def.type = b2_dynamicBody;
+	def.position.Set(ball_position.x / PTM_RATIO,ball_position.y / PTM_RATIO);
+	def.userData = ballSprite;
+
+	b2Body *ball = _world->CreateBody(&def);
+
+	b2CircleShape shape;
+	shape.m_radius = ballSprite->getContentSize().width / 2;
+
+	b2FixtureDef fixDef;
+	fixDef.shape = &shape;
+	fixDef.density = 1.0f;//密度 不能为0.0
+	fixDef.friction = 0.2f;//摩擦力
+	fixDef.restitution = 0.3f;//弹力
+
+	ball->CreateFixture(&fixDef);
+
+}
+
 void GameLayer::initOther()
 {
 	this->scheduleUpdate();
@@ -104,4 +137,22 @@ void GameLayer::initOther()
 void  GameLayer::update(float dt)
 {
 	_world->Step(dt,10,10);
+
+	//for (b2Body *body = _world->GetBodyList();body;body->GetNext())
+	//{
+	//	if (body->GetType() == b2_dynamicBody)
+	//	{
+	//		auto *sprite = (Sprite*)body->GetUserData();
+	//		//update position
+	//		sprite->setPosition(ccp(body->GetPosition().x * PTM_RATIO, body->GetPosition().y * PTM_RATIO));
+	//		//update angle
+	//		sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(body->GetAngle()));
+	//	}
+	//}
+}
+
+bool GameLayer::onTouchBegan(Touch *touch, Event *event)
+{
+
+	return true;
 }

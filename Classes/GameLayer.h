@@ -34,9 +34,15 @@ public:
     
     //init physics
     void initPhysics();
+
+	//initialize ball
+	void initBall();
     
 	//
 	void initOther();
+
+
+	virtual bool onTouchBegan(Touch *touch, Event *event);
 
 	void update(float dt);
 private:

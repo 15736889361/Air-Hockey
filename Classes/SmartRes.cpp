@@ -29,7 +29,7 @@ void SmartRes::setVirtualScreenValue(int dir, float value)
         m_screenSize.width = value;
         m_screenSize.height = winSizeInPixels.height / m_scale;
 
-		Director::getInstance()->getOpenGLView()->setDesignResolutionSize(m_screenSize.width, m_screenSize.height, kResolutionNoBorder);
+		Director::getInstance()->getOpenGLView()->setDesignResolutionSize(m_screenSize.width, m_screenSize.height, ResolutionPolicy::NO_BORDER);
 
         log("Virtual width: %0.2f, Virtual height: %0.2f, scale: %0.2f",
               m_screenSize.width, m_screenSize.height, m_scale);
@@ -65,7 +65,7 @@ void SmartRes::setVirtualScreenWidth(float width)
     m_scale = winSizeInPixels.width / width;
     m_screenSize.width = width;
     m_screenSize.height = winSizeInPixels.height / m_scale;
-	Director::getInstance()->getOpenGLView()->setDesignResolutionSize(m_screenSize.width, m_screenSize.height, kResolutionNoBorder);
+	Director::getInstance()->getOpenGLView()->setDesignResolutionSize(m_screenSize.width, m_screenSize.height, ResolutionPolicy::NO_BORDER);
 
     log("Virtual width: %0.2f, Virtual height: %0.2f, scale: %0.2f",
         m_screenSize.width, m_screenSize.height, m_scale);
@@ -110,7 +110,7 @@ void SmartRes::setVirtualScreenHeight(float height)
 
 	m_screenSize.width = winSizeInPixels.width / m_scale;
 	m_screenSize.height = height;
-	Director::getInstance()->getOpenGLView()->setDesignResolutionSize(m_screenSize.width, m_screenSize.height, kResolutionNoBorder);
+	Director::getInstance()->getOpenGLView()->setDesignResolutionSize(m_screenSize.width, m_screenSize.height, ResolutionPolicy::NO_BORDER);
 
 	log("Virtual width: %0.2f, Virtual height: %0.2f, scale: %0.2f",
 		m_screenSize.width, m_screenSize.height, m_scale);
