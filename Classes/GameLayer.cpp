@@ -115,9 +115,11 @@ void GameLayer::initBall()
 	def.userData = ballSprite;
 
 	b2Body *ball = _world->CreateBody(&def);
+	ball->SetLinearDamping(1.2f);
+	ball->SetAngularDamping(0.8f);
 
 	b2CircleShape shape;
-	shape.m_radius = ballSprite->getContentSize().width / 2;
+	shape.m_radius = ballSprite->getContentSize().width / 2 / PTM_RATIO;
 
 	b2FixtureDef fixDef;
 	fixDef.shape = &shape;
@@ -138,17 +140,17 @@ void  GameLayer::update(float dt)
 {
 	_world->Step(dt,10,10);
 
-	//for (b2Body *body = _world->GetBodyList();body;body->GetNext())
-	//{
-	//	if (body->GetType() == b2_dynamicBody)
-	//	{
-	//		auto *sprite = (Sprite*)body->GetUserData();
-	//		//update position
-	//		sprite->setPosition(ccp(body->GetPosition().x * PTM_RATIO, body->GetPosition().y * PTM_RATIO));
-	//		//update angle
-	//		sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(body->GetAngle()));
-	//	}
-	//}
+	for (b2Body *body = _world->GetBodyList();body;body = body->GetNext())
+	{
+		if (body->GetUserData() != nullptr && body->GetType() == b2_dynamicBody)
+		{
+			auto *sprite = (Sprite*)body->GetUserData();
+			//update position
+			sprite->setPosition(ccp(body->GetPosition().x * PTM_RATIO, body->GetPosition().y * PTM_RATIO));
+			//update angle
+			sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(body->GetAngle()));
+		}
+	}
 }
 
 bool GameLayer::onTouchBegan(Touch *touch, Event *event)
