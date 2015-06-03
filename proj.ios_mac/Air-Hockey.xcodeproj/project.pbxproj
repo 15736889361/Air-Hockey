@@ -50,6 +50,8 @@
 		7AB94C6A95BCF2B4CA3DF1DC /* res in Resources */ = {isa = PBXBuildFile; fileRef = FA144D09A52357282113E0F8 /* res */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		9F8B4F24824617F9A0E5789A /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62FC4D32A80EFB11E0A6CF2A /* libcocos2d Mac.a */; };
+		A4F0CCAC1B1C4AB70067955A /* SmartRes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4F0CCAA1B1C4AB70067955A /* SmartRes.cpp */; };
+		A4F0CCAD1B1C4AB70067955A /* SmartRes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4F0CCAA1B1C4AB70067955A /* SmartRes.cpp */; };
 		A4F105D71B0D8AFC007F0270 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4F105D51B0D8AFC007F0270 /* GameLayer.cpp */; };
 		A4F105D81B0D8AFC007F0270 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4F105D51B0D8AFC007F0270 /* GameLayer.cpp */; };
 		A4F105DB1B0D8DE3007F0270 /* GameDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4F105D91B0D8DE3007F0270 /* GameDelegate.cpp */; };
@@ -108,6 +110,9 @@
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		62FC4D32A80EFB11E0A6CF2A /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/mac/libcocos2d Mac.a"; sourceTree = "<absolute>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A4F0CCAA1B1C4AB70067955A /* SmartRes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmartRes.cpp; sourceTree = "<group>"; };
+		A4F0CCAB1B1C4AB70067955A /* SmartRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartRes.h; sourceTree = "<group>"; };
+		A4F0CCAF1B1C4AE00067955A /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		A4F105D51B0D8AFC007F0270 /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
 		A4F105D61B0D8AFC007F0270 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		A4F105D91B0D8DE3007F0270 /* GameDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameDelegate.cpp; sourceTree = "<group>"; };
@@ -239,6 +244,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A4F0CCAE1B1C4ABF0067955A /* tool */,
 				A4F105DF1B0D8E17007F0270 /* layer */,
 				A4F105DE1B0D8E03007F0270 /* global */,
 				A4F105DD1B0D8DEF007F0270 /* main */,
@@ -308,6 +314,16 @@
 				62FC4D32A80EFB11E0A6CF2A /* libcocos2d Mac.a */,
 			);
 			name = "mac-libs";
+			sourceTree = "<group>";
+		};
+		A4F0CCAE1B1C4ABF0067955A /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				A4F0CCAA1B1C4AB70067955A /* SmartRes.cpp */,
+				A4F0CCAB1B1C4AB70067955A /* SmartRes.h */,
+				A4F0CCAF1B1C4AE00067955A /* Constant.h */,
+			);
+			name = tool;
 			sourceTree = "<group>";
 		};
 		A4F105DD1B0D8DEF007F0270 /* main */ = {
@@ -454,6 +470,7 @@
 				A4F105DB1B0D8DE3007F0270 /* GameDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				A4F0CCAC1B1C4AB70067955A /* SmartRes.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				A4F105D71B0D8AFC007F0270 /* GameLayer.cpp in Sources */,
 			);
@@ -467,6 +484,7 @@
 				A4F105D81B0D8AFC007F0270 /* GameLayer.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				A4F105DC1B0D8DE3007F0270 /* GameDelegate.cpp in Sources */,
+				A4F0CCAD1B1C4AB70067955A /* SmartRes.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
