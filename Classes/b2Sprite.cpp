@@ -8,7 +8,7 @@
 
 #include "b2Sprite.h"
 
-b2Sprite::b2Sprite(GameLayer* game,int type,Vec2 position)
+b2Sprite::b2Sprite(GameLayer* game,int type)
 {
     _sGame = game;
     _sType = type;
@@ -23,10 +23,10 @@ void b2Sprite::setSpritePosition(Vec2 position)
 {
     setPosition(position);
     
-    if (_sBody)
-    {
-        _sBody->SetTransform(b2Vec2(position.x / PTM_RATIO, position.y / PTM_RATIO), _sBody->GetAngle());
-    }
+//    if (_sBody)
+//    {
+//        _sBody->SetTransform(b2Vec2(position.x / PTM_RATIO, position.y / PTM_RATIO), _sBody->GetAngle());
+//    }
 }
 
 void b2Sprite::update(float dt)

@@ -12,15 +12,15 @@
 #include "cocos2d.h"
 #include "Box2D/Box2D.h"
 
-#include "GameLayer.h"
 #include "GlobalConstant.h"
 
 USING_NS_CC;
 
+class GameLayer;
 class b2Sprite : public Sprite
 {
 public:
-    b2Sprite(GameLayer* game,int type,Vec2 position);
+    b2Sprite(GameLayer* game,int type);
     virtual ~b2Sprite();
     
     virtual void setSpritePosition(Vec2 position);

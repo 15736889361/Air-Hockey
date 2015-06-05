@@ -16,6 +16,8 @@
 #include "cocos2d.h"
 #include "Box2D/Box2D.h"
 
+//entity
+#include "Ball.h"
 
 USING_NS_CC;
 
@@ -45,8 +47,12 @@ public:
 	void update(float dt);
 private:
     
-	b2World* _world;
+	//b2World* _world;
     
+    CC_SYNTHESIZE(b2World*, _world, World);
+    
+    CC_SYNTHESIZE(Ball*, _ball, Ball);
+
 };
 
 #endif /* defined(__Air_Hockey__GameLayer__) */

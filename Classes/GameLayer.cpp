@@ -102,32 +102,9 @@ void GameLayer::initPhysics()
 
 void GameLayer::initBall()
 {
-	//sprite
-	auto ballSprite = Sprite::create("puck.png");
-	ballSprite->setPosition(Vec2(_s_center.x,_s_center.y));
-	addChild(ballSprite);
-
-	auto ball_position = ballSprite->getPosition();
-
-	b2BodyDef def;
-	def.type = b2_dynamicBody;
-	def.position.Set(ball_position.x / PTM_RATIO,ball_position.y / PTM_RATIO);
-	def.userData = ballSprite;
-
-	b2Body *ball = _world->CreateBody(&def);
-	ball->SetLinearDamping(1.2f);
-	ball->SetAngularDamping(0.8f);
-
-	b2CircleShape shape;
-	shape.m_radius = ballSprite->getContentSize().width / 2 / PTM_RATIO;
-
-	b2FixtureDef fixDef;
-	fixDef.shape = &shape;
-	fixDef.density = 1.0f;//密度 不能为0.0
-	fixDef.friction = 0.2f;//摩擦力
-	fixDef.restitution = 0.3f;//弹力
-
-	ball->CreateFixture(&fixDef);
+    _ball = Ball::create(this, 0, _s_center);
+    
+    addChild(_ball);
 
 }
 
@@ -139,16 +116,18 @@ void GameLayer::initOther()
 void  GameLayer::update(float dt)
 {
 	_world->Step(dt,10,10);
+    
+    //_ball->update(dt);
 
-	for (b2Body *body = _world->GetBodyList();body;body = body->GetNext())
-	{
-		if (body->GetUserData() != nullptr && body->GetType() == b2_dynamicBody)
-		{
-			auto *sprite = (Sprite*)body->GetUserData();
-			//update position
-			sprite->setPosition(Vec2(body->GetPosition().x * PTM_RATIO, body->GetPosition().y * PTM_RATIO));
-			//update angle
-			sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(body->GetAngle()));
-		}
-	}
+//	for (b2Body *body = _world->GetBodyList();body;body = body->GetNext())
+//	{
+//		if (body->GetUserData() != nullptr && body->GetType() == b2_dynamicBody)
+//		{
+//			auto *sprite = (Sprite*)body->GetUserData();
+//			//update position
+//			sprite->setPosition(Vec2(body->GetPosition().x * PTM_RATIO, body->GetPosition().y * PTM_RATIO));
+//			//update angle
+//			sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(body->GetAngle()));
+//		}
+//	}
 }
