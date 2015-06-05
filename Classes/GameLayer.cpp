@@ -146,15 +146,9 @@ void  GameLayer::update(float dt)
 		{
 			auto *sprite = (Sprite*)body->GetUserData();
 			//update position
-			sprite->setPosition(ccp(body->GetPosition().x * PTM_RATIO, body->GetPosition().y * PTM_RATIO));
+			sprite->setPosition(Vec2(body->GetPosition().x * PTM_RATIO, body->GetPosition().y * PTM_RATIO));
 			//update angle
 			sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(body->GetAngle()));
 		}
 	}
-}
-
-bool GameLayer::onTouchBegan(Touch *touch, Event *event)
-{
-
-	return true;
 }

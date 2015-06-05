@@ -10,7 +10,7 @@
 #define __Air_Hockey__GameLayer__
 
 //tool
-#include "Constant.h"
+#include "GlobalConstant.h"
 #include "SmartRes.h"
 
 #include "cocos2d.h"
@@ -38,12 +38,10 @@ public:
 	//initialize ball
 	void initBall();
     
-	//
+	//initialize other
 	void initOther();
 
-
-	virtual bool onTouchBegan(Touch *touch, Event *event);
-
+    //default update
 	void update(float dt);
 private:
     
