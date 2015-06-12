@@ -12,12 +12,14 @@
 //tool
 #include "GlobalConstant.h"
 #include "SmartRes.h"
+#include "GlobalEnum.h"
 
 #include "cocos2d.h"
 #include "Box2D/Box2D.h"
 
 //entity
 #include "Ball.h"
+#include "Player.h"
 
 USING_NS_CC;
 
@@ -30,6 +32,8 @@ public:
     static GameLayer* create();
     
     virtual bool init();
+    
+    virtual void onExit();
 
 	//init ui
 	void initUI();
@@ -37,21 +41,22 @@ public:
     //init physics
     void initPhysics();
 
-	//initialize ball
-	void initBall();
+	//initialize entity
+	void initEntity();
     
 	//initialize other
 	void initOther();
 
     //default update
 	void update(float dt);
+    
+    //collision
+    bool onContactBegin(PhysicsContact& contact);
 private:
     
-	//b2World* _world;
+    CC_SYNTHESIZE(Player*, _player, MyPlayer);
     
-    CC_SYNTHESIZE(b2World*, _world, World);
-    
-    CC_SYNTHESIZE(Ball*, _ball, Ball);
+    CC_SYNTHESIZE(Ball*, _ball, MyBall);
 
 };
 

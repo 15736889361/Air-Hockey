@@ -38,55 +38,67 @@ void GameDelegate::init()
 
 void GameDelegate::openSceneStart()
 {
-//    CCScene *pScene = CCScene::create();
-//	pScene->addChild(StartLayer::create());
-//    pScene->addChild(GameSoundEffectLayer::create());
-//    
-//    CCDirector::sharedDirector()->runWithScene(pScene);
+    //    CCScene *pScene = CCScene::create();
+    //	pScene->addChild(StartLayer::create());
+    //    pScene->addChild(GameSoundEffectLayer::create());
+    //
+    //    CCDirector::sharedDirector()->runWithScene(pScene);
 }
 
 void GameDelegate::openSceneMainMenu()
 {
-//	CCScene *pScene = CCScene::create();
-//	pScene->addChild(MenuLayer::create());
-//    pScene->addChild(GameSoundEffectLayer::create());
-//	
-//    CCDirector::sharedDirector()->replaceScene(pScene);
+    //	CCScene *pScene = CCScene::create();
+    //	pScene->addChild(MenuLayer::create());
+    //    pScene->addChild(GameSoundEffectLayer::create());
+    //
+    //    CCDirector::sharedDirector()->replaceScene(pScene);
 }
 
 void GameDelegate::openSceneHelp()
 {
-//	CCScene *pScene = CCScene::create();
-//	pScene->addChild(GameHelp::create());
-//    pScene->addChild(GameSoundEffectLayer::create());
-//	CCDirector::sharedDirector()->replaceScene(pScene);
+    //	CCScene *pScene = CCScene::create();
+    //	pScene->addChild(GameHelp::create());
+    //    pScene->addChild(GameSoundEffectLayer::create());
+    //	CCDirector::sharedDirector()->replaceScene(pScene);
 }
 
 void GameDelegate::openSceneConfigure()
 {
-//	CCScene *pScene = CCScene::create();
-//	pScene->addChild(GameConfigure::create());
-//    pScene->addChild(GameSoundEffectLayer::create());
-//
-//	CCDirector::sharedDirector()->replaceScene(pScene);
+    //	CCScene *pScene = CCScene::create();
+    //	pScene->addChild(GameConfigure::create());
+    //    pScene->addChild(GameSoundEffectLayer::create());
+    //
+    //	CCDirector::sharedDirector()->replaceScene(pScene);
 }
 
 void GameDelegate::openSceneAbout()
 {
-//	CCScene *pScene = CCScene::create();
-//	pScene->addChild(GameAbout::create());
-//    pScene->addChild(GameSoundEffectLayer::create());
-//    
-//	CCDirector::sharedDirector()->replaceScene(pScene);
+    //	CCScene *pScene = CCScene::create();
+    //	pScene->addChild(GameAbout::create());
+    //    pScene->addChild(GameSoundEffectLayer::create());
+    //
+    //	CCDirector::sharedDirector()->replaceScene(pScene);
 }
 
 void GameDelegate::openSceneGame()
 {
-	auto *pScene = Scene::create();
-    pScene->addChild(GameLayer::create());
+    Vec2 gravity(0.0f,PHYCISC_GRAIVTY_Y);
+    
+    auto pScene = Scene::createWithPhysics();
+    
+    auto world = pScene->getPhysicsWorld();
+    //设置重力
+    world->setGravity(gravity);
+    //测试模式
+    world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    
+    //world->setSpeed(8);
+    //world->setSubsteps(3);
+    
+    pScene->addChild(GameLayer::create(),kZorderGameLayer,kTagGameLayer);
     
     Director::getInstance()->runWithScene(pScene);
-//    Director::getInstance()->replaceScene(pScene);
+    //    Director::getInstance()->replaceScene(pScene);
 }
 
 void GameDelegate::exit()

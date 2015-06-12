@@ -50,10 +50,10 @@
 		7AB94C6A95BCF2B4CA3DF1DC /* res in Resources */ = {isa = PBXBuildFile; fileRef = FA144D09A52357282113E0F8 /* res */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		9F8B4F24824617F9A0E5789A /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62FC4D32A80EFB11E0A6CF2A /* libcocos2d Mac.a */; };
-		A44FBEB31B1EA7080098B0A2 /* b2Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A44FBEB11B1EA7080098B0A2 /* b2Sprite.cpp */; };
-		A44FBEB41B1EA7080098B0A2 /* b2Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A44FBEB11B1EA7080098B0A2 /* b2Sprite.cpp */; };
 		A44FBEB81B1EC2F10098B0A2 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A44FBEB61B1EC2F10098B0A2 /* Ball.cpp */; };
 		A44FBEB91B1EC2F10098B0A2 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A44FBEB61B1EC2F10098B0A2 /* Ball.cpp */; };
+		A455592E1B2AE7FC003B3F3A /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A455592C1B2AE7FC003B3F3A /* Player.cpp */; };
+		A455592F1B2AE7FC003B3F3A /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A455592C1B2AE7FC003B3F3A /* Player.cpp */; };
 		A4F0CCAC1B1C4AB70067955A /* SmartRes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4F0CCAA1B1C4AB70067955A /* SmartRes.cpp */; };
 		A4F0CCAD1B1C4AB70067955A /* SmartRes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4F0CCAA1B1C4AB70067955A /* SmartRes.cpp */; };
 		A4F105D71B0D8AFC007F0270 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4F105D51B0D8AFC007F0270 /* GameLayer.cpp */; };
@@ -116,10 +116,10 @@
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A44FBEA91B1EA3BA0098B0A2 /* GlobalEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalEnum.h; sourceTree = "<group>"; };
 		A44FBEAD1B1EA3F90098B0A2 /* GlobalConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConstant.h; sourceTree = "<group>"; };
-		A44FBEB11B1EA7080098B0A2 /* b2Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2Sprite.cpp; sourceTree = "<group>"; };
-		A44FBEB21B1EA7080098B0A2 /* b2Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Sprite.h; sourceTree = "<group>"; };
 		A44FBEB61B1EC2F10098B0A2 /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
 		A44FBEB71B1EC2F10098B0A2 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+		A455592C1B2AE7FC003B3F3A /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		A455592D1B2AE7FC003B3F3A /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		A4F0CCAA1B1C4AB70067955A /* SmartRes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmartRes.cpp; sourceTree = "<group>"; };
 		A4F0CCAB1B1C4AB70067955A /* SmartRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartRes.h; sourceTree = "<group>"; };
 		A4F105D51B0D8AFC007F0270 /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
@@ -348,10 +348,10 @@
 		A44FBEB51B1EA72F0098B0A2 /* entity */ = {
 			isa = PBXGroup;
 			children = (
-				A44FBEB11B1EA7080098B0A2 /* b2Sprite.cpp */,
-				A44FBEB21B1EA7080098B0A2 /* b2Sprite.h */,
 				A44FBEB61B1EC2F10098B0A2 /* Ball.cpp */,
 				A44FBEB71B1EC2F10098B0A2 /* Ball.h */,
+				A455592C1B2AE7FC003B3F3A /* Player.cpp */,
+				A455592D1B2AE7FC003B3F3A /* Player.h */,
 			);
 			name = entity;
 			sourceTree = "<group>";
@@ -497,8 +497,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A44FBEB81B1EC2F10098B0A2 /* Ball.cpp in Sources */,
-				A44FBEB31B1EA7080098B0A2 /* b2Sprite.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				A455592E1B2AE7FC003B3F3A /* Player.cpp in Sources */,
 				A4F105DB1B0D8DE3007F0270 /* GameDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
@@ -512,8 +512,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A44FBEB41B1EA7080098B0A2 /* b2Sprite.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				A455592F1B2AE7FC003B3F3A /* Player.cpp in Sources */,
 				A4F105D81B0D8AFC007F0270 /* GameLayer.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				A4F105DC1B0D8DE3007F0270 /* GameDelegate.cpp in Sources */,

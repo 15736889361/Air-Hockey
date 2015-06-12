@@ -11,4 +11,16 @@
 
 #include <stdio.h>
 
+enum
+{
+    kTagGameEdage,
+    kTagGameLayer,
+};
+
+enum
+{
+    kZorderGameLayer,   //gamelayer
+    kZorderGameEdage,   //物理边框
+};
+
 #endif /* defined(__Air_Hockey__GlobalEnum__) */

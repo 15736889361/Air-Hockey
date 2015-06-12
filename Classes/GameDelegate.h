@@ -14,6 +14,10 @@
 //layers
 #include "GameLayer.h"
 
+//global
+#include "GlobalEnum.h"
+#include "GlobalConstant.h"
+
 USING_NS_CC;
 
 class GameDelegate

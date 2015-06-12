@@ -9,25 +9,22 @@
 #include "Ball.h"
 #include "GameLayer.h"
 
-Ball::Ball(GameLayer* game,int type,Vec2 position):b2Sprite(game,type)
+Ball::Ball()
 {
-    _startPosition = position;
+    
 }
 Ball::~Ball()
 {
     
 }
 
-Ball* Ball::create(GameLayer* game,int type,Vec2 position)
+Ball* Ball::create(int type,Vec2 position)
 {
-    Ball* ball = new Ball(game,type,position);
+    Ball* ball = new Ball();
     
-    if (ball)
+    if (ball && ball->init(type, position))
     {
-        ball->initBall();
-        
         ball->autorelease();
-        
         return ball;
     }
     else
@@ -37,38 +34,37 @@ Ball* Ball::create(GameLayer* game,int type,Vec2 position)
     }
 }
 
-
-void Ball::initBall()
+bool Ball::init(int type, Vec2 position)
 {
-    //init texture
-    initWithFile("puck.png");
-
-//    b2BodyDef def;
-//    def.type = b2_dynamicBody;
-//    
-//    _sBody = _sGame->getWorld()->CreateBody(&def);
-//    _sBody->SetLinearDamping(1.2f);
-//    _sBody->SetAngularDamping(0.8f);
-//    
-//    b2CircleShape shape;
-//    shape.m_radius = radius() / PTM_RATIO;
-//    
-//    b2FixtureDef fixDef;
-//    fixDef.shape = &shape;
-//    fixDef.density = 1.0f;//密度 不能为0.0
-//    fixDef.friction = 0.2f;//摩擦力
-//    fixDef.restitution = 0.3f;//弹力
-//    
-//    _sBody->CreateFixture(&fixDef);
-//    _sBody->SetUserData(this);
+    if (!Sprite::init()) return false;
     
-    setStartPosition(_startPosition);
+    initWithFile("puck.png");
+    setPosition(position);
+    
+    bindingBody();
+    
+    return true;
 }
 
+void Ball::bindingBody()
+{
+    auto body = PhysicsBody::createCircle(radius());
+    
+    setPhysicsBody(body);
+    
+//    body->getShape(0)->setDensity(0.3f);
+    body->getShape(0)->setFriction(0.3f);
+    body->getShape(0)->setRestitution(1.0f);
+    
+    body->setCategoryBitmask(1);    // 0001
+    body->setCollisionBitmask(1);   // 0001
+    body->setContactTestBitmask(1); // 0001
+    
+}
 
 void Ball::update(float dt)
 {
-    //b2Sprite::update(dt);
+    
 }
 
 float Ball::radius()

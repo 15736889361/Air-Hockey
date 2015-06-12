@@ -15,11 +15,11 @@ using namespace cocostudio::timeline;
 
 GameLayer::GameLayer()
 {
-	_world = nullptr;
+
 }
 GameLayer::~GameLayer()
 {
-	CC_SAFE_DELETE(_world);
+
 }
 
 GameLayer* GameLayer::create()
@@ -49,7 +49,7 @@ bool GameLayer::init()
 
 	initPhysics();
 
-	initBall();
+	initEntity();
 
 	initOther();
     
@@ -60,74 +60,55 @@ void GameLayer::initUI()
 {
 	auto layer = CSLoader::createNode("MainScene.csb");
 	addChild(layer);
-
 }
 
 //init physics
 void GameLayer::initPhysics()
 {
-    //init world
-	 b2Vec2 gravity;
-	 gravity.SetZero();
-
-	_world = new b2World(gravity);
-	_world->SetAllowSleeping(true);
-	_world->SetContinuousPhysics(true);
-
-	//init walls
-	
-	b2BodyDef def;
-	def.position.SetZero();
-
-	b2Body *walls = _world->CreateBody(&def);
-
-	b2EdgeShape shape;
-
-	//up
-	shape.Set(b2Vec2(0,_s_height / PTM_RATIO),b2Vec2(_s_width / PTM_RATIO,_s_height / PTM_RATIO));
-	walls->CreateFixture(&shape,0);
-
-	//down
-	shape.Set(b2Vec2(0,0),b2Vec2(_s_width / PTM_RATIO,0));
-	walls->CreateFixture(&shape,0);
-
-	//left
-	shape.Set(b2Vec2(0,0),b2Vec2(0,_s_height / PTM_RATIO));
-	walls->CreateFixture(&shape,0);
-
-	//right
-	shape.Set(b2Vec2(_s_width / PTM_RATIO,0),b2Vec2(_s_width / PTM_RATIO,_s_height / PTM_RATIO));
-	walls->CreateFixture(&shape,0);
+    
+    auto body = PhysicsBody::createEdgeBox(_s_winsize,PHYSICSBODY_MATERIAL_DEFAULT,PHYCISC_DEBUG_W);
+    
+    auto node = Node::create();
+    node->setPosition(_s_center);
+    node->setPhysicsBody(body);
+    
+    addChild(node,kZorderGameEdage,kTagGameEdage);
 }
 
-void GameLayer::initBall()
+void GameLayer::initEntity()
 {
-    _ball = Ball::create(this, 0, _s_center);
-    
+    _ball = Ball::create(0, _s_center);
     addChild(_ball);
+    
+    _player = Player::create(1, Vec2(_s_center.x, _s_center.y / 3));
+    addChild(_player);
 
 }
 
 void GameLayer::initOther()
 {
-	this->scheduleUpdate();
+    
+    
+    auto contact = EventListenerPhysicsContact::create();
+    contact->onContactBegin = CC_CALLBACK_1(GameLayer::onContactBegin, this);
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contact, this);
+    
+}
+
+bool GameLayer::onContactBegin(cocos2d::PhysicsContact &contact)
+{
+    log("2222");
+    return true;
+}
+
+void GameLayer::onExit()
+{
+    Layer::onExit();
+    
+    Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 }
 
 void  GameLayer::update(float dt)
 {
-	_world->Step(dt,10,10);
-    
-    //_ball->update(dt);
 
-//	for (b2Body *body = _world->GetBodyList();body;body = body->GetNext())
-//	{
-//		if (body->GetUserData() != nullptr && body->GetType() == b2_dynamicBody)
-//		{
-//			auto *sprite = (Sprite*)body->GetUserData();
-//			//update position
-//			sprite->setPosition(Vec2(body->GetPosition().x * PTM_RATIO, body->GetPosition().y * PTM_RATIO));
-//			//update angle
-//			sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(body->GetAngle()));
-//		}
-//	}
 }
