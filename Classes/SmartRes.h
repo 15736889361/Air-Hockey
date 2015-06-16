@@ -1,3 +1,11 @@
+//
+//  SmartRes 屏幕适配类
+//  Air-Hockey
+//
+//  Created by mini02 on 15/6/15.
+//
+//
+
 #ifndef __SMART_RES_H_
 #define __SMART_RES_H_
 

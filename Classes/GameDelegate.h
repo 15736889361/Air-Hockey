@@ -1,5 +1,5 @@
 ﻿//
-//  GameLayer.h
+//  GameLayer.h 场景切换类
 //  Air-Hockey
 //
 //  Created by mogoolib on 15/5/21.

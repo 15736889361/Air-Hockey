@@ -41,6 +41,8 @@ bool Ball::init(int type, Vec2 position)
     initWithFile("puck.png");
     setPosition(position);
     
+    setTag(kTagBall);
+    
     bindingBody();
     
     return true;
@@ -50,15 +52,18 @@ void Ball::bindingBody()
 {
     auto body = PhysicsBody::createCircle(radius());
     
-    setPhysicsBody(body);
+    body->setDynamic(true);
+    body->setGravityEnable(false);
     
 //    body->getShape(0)->setDensity(0.3f);
     body->getShape(0)->setFriction(0.3f);
     body->getShape(0)->setRestitution(1.0f);
     
-    body->setCategoryBitmask(1);    // 0001
-    body->setCollisionBitmask(1);   // 0001
-    body->setContactTestBitmask(1); // 0001
+    body->setCategoryBitmask(kMaskBall);   
+    body->setCollisionBitmask(kMaskBall|kMaskPlayer|kMaskGameEdage);
+    body->setContactTestBitmask(kMaskBall|kMaskPlayer|kMaskGameEdage);
+    
+    setPhysicsBody(body);
     
 }
 

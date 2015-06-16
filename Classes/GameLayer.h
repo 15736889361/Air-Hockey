@@ -1,5 +1,5 @@
 //
-//  GameLayer.h
+//  GameLayer.h 游戏布景类
 //  Air-Hockey
 //
 //  Created by mogoolib on 15/5/21.
@@ -52,6 +52,7 @@ public:
     
     //collision
     bool onContactBegin(PhysicsContact& contact);
+    
 private:
     
     CC_SYNTHESIZE(Player*, _player, MyPlayer);

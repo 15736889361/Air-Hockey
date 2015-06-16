@@ -1,5 +1,5 @@
 //
-//  GlobalConstant.h
+//  GlobalConstant.h 全局变量类
 //  Air-Hockey
 //
 //  Created by mini02 on 15/6/3.
@@ -18,6 +18,6 @@
 #define PHYCISC_DEBUG_W 3
 
 //物理世界重力值
-#define PHYCISC_GRAIVTY_Y -10.0f
+#define PHYCISC_GRAIVTY_Y 0.0f
 
 #endif /* defined(__Air_Hockey__GlobalConstant__) */

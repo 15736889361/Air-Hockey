@@ -52,6 +52,8 @@
 		9F8B4F24824617F9A0E5789A /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62FC4D32A80EFB11E0A6CF2A /* libcocos2d Mac.a */; };
 		A44FBEB81B1EC2F10098B0A2 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A44FBEB61B1EC2F10098B0A2 /* Ball.cpp */; };
 		A44FBEB91B1EC2F10098B0A2 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A44FBEB61B1EC2F10098B0A2 /* Ball.cpp */; };
+		A450C8CA1B2EA24D00311523 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A450C8C81B2EA24D00311523 /* Utils.cpp */; };
+		A450C8CB1B2EA24D00311523 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A450C8C81B2EA24D00311523 /* Utils.cpp */; };
 		A455592E1B2AE7FC003B3F3A /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A455592C1B2AE7FC003B3F3A /* Player.cpp */; };
 		A455592F1B2AE7FC003B3F3A /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A455592C1B2AE7FC003B3F3A /* Player.cpp */; };
 		A4F0CCAC1B1C4AB70067955A /* SmartRes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4F0CCAA1B1C4AB70067955A /* SmartRes.cpp */; };
@@ -118,6 +120,8 @@
 		A44FBEAD1B1EA3F90098B0A2 /* GlobalConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConstant.h; sourceTree = "<group>"; };
 		A44FBEB61B1EC2F10098B0A2 /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
 		A44FBEB71B1EC2F10098B0A2 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+		A450C8C81B2EA24D00311523 /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		A450C8C91B2EA24D00311523 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		A455592C1B2AE7FC003B3F3A /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		A455592D1B2AE7FC003B3F3A /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		A4F0CCAA1B1C4AB70067955A /* SmartRes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmartRes.cpp; sourceTree = "<group>"; };
@@ -257,7 +261,6 @@
 				A44FBEA71B1EA3930098B0A2 /* tool */,
 				A44FBEA61B1EA37E0098B0A2 /* global */,
 				A4F105DF1B0D8E17007F0270 /* layer */,
-				A4F105DE1B0D8E03007F0270 /* global */,
 				A4F105DD1B0D8DEF007F0270 /* main */,
 			);
 			name = Classes;
@@ -341,6 +344,8 @@
 			children = (
 				A4F0CCAA1B1C4AB70067955A /* SmartRes.cpp */,
 				A4F0CCAB1B1C4AB70067955A /* SmartRes.h */,
+				A450C8C81B2EA24D00311523 /* Utils.cpp */,
+				A450C8C91B2EA24D00311523 /* Utils.h */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -359,19 +364,12 @@
 		A4F105DD1B0D8DEF007F0270 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				A4F105D91B0D8DE3007F0270 /* GameDelegate.cpp */,
+				A4F105DA1B0D8DE3007F0270 /* GameDelegate.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 			);
 			name = main;
-			sourceTree = "<group>";
-		};
-		A4F105DE1B0D8E03007F0270 /* global */ = {
-			isa = PBXGroup;
-			children = (
-				A4F105D91B0D8DE3007F0270 /* GameDelegate.cpp */,
-				A4F105DA1B0D8DE3007F0270 /* GameDelegate.h */,
-			);
-			name = global;
 			sourceTree = "<group>";
 		};
 		A4F105DF1B0D8E17007F0270 /* layer */ = {
@@ -499,6 +497,7 @@
 				A44FBEB81B1EC2F10098B0A2 /* Ball.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				A455592E1B2AE7FC003B3F3A /* Player.cpp in Sources */,
+				A450C8CA1B2EA24D00311523 /* Utils.cpp in Sources */,
 				A4F105DB1B0D8DE3007F0270 /* GameDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
@@ -515,6 +514,7 @@
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				A455592F1B2AE7FC003B3F3A /* Player.cpp in Sources */,
 				A4F105D81B0D8AFC007F0270 /* GameLayer.cpp in Sources */,
+				A450C8CB1B2EA24D00311523 /* Utils.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				A4F105DC1B0D8DE3007F0270 /* GameDelegate.cpp in Sources */,
 				A4F0CCAD1B1C4AB70067955A /* SmartRes.cpp in Sources */,

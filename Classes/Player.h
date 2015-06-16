@@ -1,5 +1,5 @@
 //
-//  Player.h
+//  Player.h 主角类
 //  Air-Hockey
 //
 //  Created by mini02 on 15/6/12.
@@ -11,8 +11,21 @@
 
 #include "cocos2d.h"
 
+#include "SmartRes.h"
+#include "Utils.h"
+#include "GlobalEnum.h"
+
+#include "Ball.h"
+
 USING_NS_CC;
 
+enum
+{
+    STATE_NORMAL = 0,
+    STATE_TOUCH,
+};
+
+//class Ball;
 class Player : public Sprite
 {
 public:
@@ -32,6 +45,20 @@ public:
     
     float radius();
     
+    float getW();
+    float getH();
+    
+    bool onTouchBegin(Touch* touch,Event* event);
+    void onTouchMoved(Touch* touch,Event* event);
+    void onTouchEnded(Touch* touch,Event* event);
+    
+private:
+    
+    int state;
+    
+    CC_SYNTHESIZE(Vec2, _nextPosition, NextPosition);
+    
+    CC_SYNTHESIZE(Ball*, _tmpBall, TmpBall);
 };
 
 #endif /* defined(__Air_Hockey__Player__) */

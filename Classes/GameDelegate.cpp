@@ -91,10 +91,7 @@ void GameDelegate::openSceneGame()
     world->setGravity(gravity);
     //测试模式
     world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-    
-    //world->setSpeed(8);
-    //world->setSubsteps(3);
-    
+
     pScene->addChild(GameLayer::create(),kZorderGameLayer,kTagGameLayer);
     
     Director::getInstance()->runWithScene(pScene);

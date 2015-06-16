@@ -1,5 +1,5 @@
 //
-//  Ball.h
+//  Ball.h 小球类
 //  Air-Hockey
 //
 //  Created by mini02 on 15/6/3.
@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "cocos2d.h"
 
+#include "GlobalEnum.h"
 
 USING_NS_CC;
 
